@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Buckets.Data", "Buckets.Dat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Buckets.App", "Buckets.App\Buckets.App.csproj", "{ECC4509C-BF51-4D95-A857-7E679A0AFF87}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Buckets.Test", "Buckets.Test\Buckets.Test.csproj", "{B5343E7B-C84D-4B12-9ACF-30A3C7E13F71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,5 +46,17 @@ Global
 		{ECC4509C-BF51-4D95-A857-7E679A0AFF87}.Release|x64.Build.0 = Release|Any CPU
 		{ECC4509C-BF51-4D95-A857-7E679A0AFF87}.Release|x86.ActiveCfg = Release|Any CPU
 		{ECC4509C-BF51-4D95-A857-7E679A0AFF87}.Release|x86.Build.0 = Release|Any CPU
+		{B5343E7B-C84D-4B12-9ACF-30A3C7E13F71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5343E7B-C84D-4B12-9ACF-30A3C7E13F71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5343E7B-C84D-4B12-9ACF-30A3C7E13F71}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B5343E7B-C84D-4B12-9ACF-30A3C7E13F71}.Debug|x64.Build.0 = Debug|Any CPU
+		{B5343E7B-C84D-4B12-9ACF-30A3C7E13F71}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B5343E7B-C84D-4B12-9ACF-30A3C7E13F71}.Debug|x86.Build.0 = Debug|Any CPU
+		{B5343E7B-C84D-4B12-9ACF-30A3C7E13F71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5343E7B-C84D-4B12-9ACF-30A3C7E13F71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5343E7B-C84D-4B12-9ACF-30A3C7E13F71}.Release|x64.ActiveCfg = Release|Any CPU
+		{B5343E7B-C84D-4B12-9ACF-30A3C7E13F71}.Release|x64.Build.0 = Release|Any CPU
+		{B5343E7B-C84D-4B12-9ACF-30A3C7E13F71}.Release|x86.ActiveCfg = Release|Any CPU
+		{B5343E7B-C84D-4B12-9ACF-30A3C7E13F71}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
