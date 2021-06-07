@@ -33,6 +33,7 @@ namespace Buckets.App
 
             rainBarrel.changeAmount = cad;
             rainBarrel.overflowing = ofd;
+            rainBarrel.reachedCapacity = rcd;
             rainBarrel.Content += 20;
             rainBarrel.Content += 20;
             rainBarrel.Content += 20;
@@ -48,10 +49,10 @@ namespace Buckets.App
             oilBarrel.changeAmount = cad;
             oilBarrel.overflowing = ofd;
             oilBarrel.reachedCapacity = rcd;
-            oilBarrel.Content += 66;
-            oilBarrel.Content += 66;
-            oilBarrel.Content += 66;
-            oilBarrel.Content += 66;
+            oilBarrel.Content += 25;
+            oilBarrel.Content += 25;
+            oilBarrel.Content += 25;
+            oilBarrel.Content += 25;
 
             oilBarrel.Info();
         }

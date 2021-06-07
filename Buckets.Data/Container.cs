@@ -21,13 +21,12 @@ namespace Buckets.Data
         public int Content {
             get => this._Content;
             set {
+                this.reachedCapacity?.Invoke(this, value);
+                //if (this.reachedCapacity != null) { this.reachedCapacity.Invoke(this, value); }
+
                 if (this.overflowing != null) {
                     if (this.overflowing.Invoke(this, value))
                         return;
-                }
-
-                if (this.reachedCapacity != null) {
-                    this.reachedCapacity.Invoke(this, value);
                 }
 
                 this._Content = (this.changeAmount != null) ? this.changeAmount.Invoke(this, value) : value;
