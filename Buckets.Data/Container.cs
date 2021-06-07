@@ -21,8 +21,7 @@ namespace Buckets.Data
         public int Content {
             get => this._Content;
             set {
-                this.reachedCapacity?.Invoke(this, value);
-                //if (this.reachedCapacity != null) { this.reachedCapacity.Invoke(this, value); }
+                this.reachedCapacity?.Invoke(this, value); // if (this.reachedCapacity != null) { this.reachedCapacity.Invoke(this, value); }
 
                 if (this.overflowing != null) {
                     if (this.overflowing.Invoke(this, value))
@@ -44,9 +43,12 @@ namespace Buckets.Data
         public OverflowingDelegate overflowing;
         public ReachedCapacityDelegate reachedCapacity;
 
+        // public Fill(int amount) { self._Content += amount }
+        // public Fill(int amount, Container container) { self._Content += amount } ?
+        // public Empty() { Content = 0 }
+
         public void Info(string mssg = "Container") {
             WriteLine($"{mssg} {Capacity}:{Content}");
         }
-
     }
 }
