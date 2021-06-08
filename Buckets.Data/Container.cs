@@ -6,6 +6,7 @@ namespace Buckets.Data
 {
     public delegate int ChangeAmountDelegate(Container sender, int x);
     public delegate bool OverflowingDelegate(Container sender, int x);
+    public delegate int OverflowActionDelegate(Container sender, int x);
     public delegate bool ReachedCapacityDelegate(Container sender, int x);
 
     public abstract class Container
@@ -25,7 +26,12 @@ namespace Buckets.Data
 
                 if (this.overflowing != null) {
                     if (this.overflowing.Invoke(this, value))
-                        return;
+                        if (this.overflowAction != null) {
+                            this._Content = this.overflowAction.Invoke(this, value);
+                            return;
+                        }
+
+                    return;
                 }
 
                 this._Content = (this.changeAmount != null) ? this.changeAmount.Invoke(this, value) : value;
@@ -41,11 +47,24 @@ namespace Buckets.Data
         // Delegates
         public ChangeAmountDelegate changeAmount;
         public OverflowingDelegate overflowing;
+        public OverflowActionDelegate overflowAction;
         public ReachedCapacityDelegate reachedCapacity;
 
-        // public Fill(int amount) { self._Content += amount }
-        // public Fill(int amount, Container container) { self._Content += amount } ?
-        // public Empty() { Content = 0 }
+        public void Fill(int amount) {
+            Fill(amount, this);
+        }
+
+        public void Fill(int amount, Container container) {
+            container.Content += amount;
+        }
+
+        public void Empty() {
+            Content = 0;
+        }
+
+        public void Empty(int amount) {
+            Content -= amount;
+        }
 
         public void Info(string mssg = "Container") {
             WriteLine($"{mssg} {Capacity}:{Content}");
