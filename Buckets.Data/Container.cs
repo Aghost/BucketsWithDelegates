@@ -22,8 +22,8 @@ namespace Buckets.Data
         public int Content {
             get => _Content;
             set {
-                reachedCapacity?.Invoke(this, value);
                 _Content = changeAmount?.Invoke(this, overflowing?.Invoke(this, value) ?? value) ?? _Content;
+                reachedCapacity?.Invoke(this, value);
             }
         }
 
