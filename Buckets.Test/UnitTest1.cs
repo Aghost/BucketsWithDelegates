@@ -76,10 +76,9 @@ namespace Buckets.Test
             // Arrange
             RainBarrel[] rainBarrel = new RainBarrel[] {
                 new RainBarrel(),
-                new RainBarrel(50),
-                new RainBarrel(99,  79),
-                new RainBarrel(100, 99),
-                new RainBarrel(130, 119)
+                new RainBarrel(RainBarrelSizes.Small),
+                new RainBarrel(RainBarrelSizes.Medium, 79),
+                new RainBarrel(RainBarrelSizes.Large, 119),
             };
 
             // Act
@@ -87,14 +86,12 @@ namespace Buckets.Test
                 rainBarrel[0].Capacity, rainBarrel[0].Content,
                 rainBarrel[1].Capacity, rainBarrel[1].Content,
                 rainBarrel[2].Capacity, rainBarrel[2].Content,
-                rainBarrel[3].Capacity, rainBarrel[3].Content,
-                rainBarrel[4].Capacity, rainBarrel[4].Content
+                rainBarrel[3].Capacity, rainBarrel[3].Content
             };
             int[] expected = new int[] {
                 100,    0,
                 80,     0,
-                100,    79,
-                100,    99,
+                100,     79,
                 120,    119
             };
 

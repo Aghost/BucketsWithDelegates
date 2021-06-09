@@ -30,7 +30,7 @@ namespace Buckets.App
             bucket.Content += 1;
 
             bucket.Info();
-            RainBarrel rainBarrel = new RainBarrel(99);
+            RainBarrel rainBarrel = new RainBarrel(RainBarrelSizes.Large);
             rainBarrel.Info();
 
             rainBarrel.changeAmount = cad;

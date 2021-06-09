@@ -5,7 +5,7 @@ using static System.Console;
 namespace Buckets.Data
 {
     public delegate int ChangeAmountDelegate(Container sender, int x);
-    public delegate bool OverflowingDelegate(Container sender, int x);
+    public delegate int OverflowingDelegate(Container sender, int x);
     public delegate int OverflowActionDelegate(Container sender, int x);
     public delegate bool ReachedCapacityDelegate(Container sender, int x);
 
@@ -15,26 +15,15 @@ namespace Buckets.Data
         private int _Content;
 
         public int Capacity {
-            get => this._Capacity;
-            set => this._Capacity = value;
+            get => _Capacity;
+            //set => _Capacity = value;
         }
 
         public int Content {
-            get => this._Content;
+            get => _Content;
             set {
-                this.reachedCapacity?.Invoke(this, value); // if (this.reachedCapacity != null) { this.reachedCapacity.Invoke(this, value); }
-
-                if (this.overflowing != null) {
-                    if (this.overflowing.Invoke(this, value))
-                        if (this.overflowAction != null) {
-                            this._Content = this.overflowAction.Invoke(this, value);
-                            return;
-                        }
-
-                    return;
-                }
-
-                this._Content = (this.changeAmount != null) ? this.changeAmount.Invoke(this, value) : value;
+                reachedCapacity?.Invoke(this, value);
+                _Content = changeAmount?.Invoke(this, overflowing?.Invoke(this, value) ?? value) ?? _Content;
             }
         }
 
@@ -55,7 +44,7 @@ namespace Buckets.Data
         }
 
         public void Fill(int amount, Container container) {
-            container.Content += amount;
+            container.Content = container.Content + amount;
         }
 
         public void Empty() {
